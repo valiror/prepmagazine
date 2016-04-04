@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       resources :comments
     end
 
-   resources :comments
+   #resources :comments
   # Example resource route with options:
   #   resources :products do
   #     member do

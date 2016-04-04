@@ -2,7 +2,9 @@
 <%= form_for @magazine do |m|%>
 <div class="row-fluid">
 <div class="col-md-1"><%= m.label :name,:"Name:"%></div>
-<div class="col-md-11"><%= m.text_field :name%></div>
+<div class="col-md-11"><%= m.text_field :name%>
+<span style="color:red;"><%= @magazine.errors[:magazine][0]%></span>
+</div>
 </div>
 <br><br>
 <div class="row-fluid mlp15 ">

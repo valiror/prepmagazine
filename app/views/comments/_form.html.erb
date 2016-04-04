@@ -2,7 +2,7 @@
  <div class="row">
    <label>List Of Comments</label>
  </div>
-<% @magazine.articles.comments.each do |comment| %>
+<% @article.comments.each do |comment| %>
    <div class="row">
     <div class="col-md-1"><strong>Comment:</strong></div>
     <div class="col-md-10"><%= comment.comment %></div>
