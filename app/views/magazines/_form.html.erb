@@ -1,0 +1,14 @@
+<section>
+<%= form_for @magazine do |m|%>
+<div class="row-fluid">
+<div class="col-md-1"><%= m.label :name,:"Name:"%></div>
+<div class="col-md-11"><%= m.text_field :name%></div>
+</div>
+<br><br>
+<div class="row-fluid mlp15 ">
+
+<%= m.submit%>
+
+</div>
+<%end%>
+</section>

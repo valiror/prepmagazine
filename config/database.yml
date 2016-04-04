@@ -1,0 +1,33 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode 
+  pool: 5  
+  database: prepmagazine_development
+  username: pguser
+  password: root
+  host: localhost
+  port: 5432
+
+
+test:
+  adapter: postgresql
+  encoding: unicode 
+  pool: 5  
+  database: prepmagazine_test
+  username: pguser
+  password: root
+  host: localhost
+  port: 5432
+
+
+
+production:
+  adapter: postgresql
+  encoding: unicode 
+  pool: 5  
+  database: prepmagazine_production
+  username: pguser
+  password: root
+  host: localhost
+  port: 5432

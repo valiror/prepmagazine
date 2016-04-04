@@ -1,0 +1,55 @@
+<div class="" style="margin-left:15px;">
+ <div class="row">
+   <label>List Of Article</label>
+ </div>
+<% @magazine.articles.each do |article| %>
+  <div class="row">
+    <div class="col-md-1"><strong>title:</strong></div>
+    <div class="col-md-10"><%= article.title %></div>
+  </div>
+ 
+  <div class="row">
+    <div class="col-md-1"><strong>Body:</strong></div>
+    <div class="col-md-10"><%= article.body %></div>
+  </div>
+   <div class="row">
+    <div class="col-md-1"><strong>Author:</strong></div>
+    <div class="col-md-10"><%= article.author %></div>
+  </div>
+  <div class="row"> 
+  <%= link_to 'Destroy article', [article.magazine, article],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+  </div>
+  <div class="row">
+<%= render "comments/form"%>
+</div>
+<%end %>
+</div>
+
+<h2>Add a Article:</h2>
+<div class="row-fluid">
+<%= form_for([@magazine, @magazine.articles.build]) do |f| %>
+  <div class="row">
+    <div class="col-md-1"><%= f.label :title %></div>
+    <div class="col-md-10"><%= f.text_field :title %></div>
+    <span style="color:red;"><%#= @comment.errors[:commenter][0]%></span>
+    <span style="color:red;"><%#= @comment.errors[:commenter][0]%></span>
+  </div>
+  <div class="row">
+    <div class="col-md-1"><%= f.label :body %></div>
+    <div class="col-md-10"><%= f.text_area :body %></div>
+    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
+    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
+  </div>
+  <div class="row">
+    <div class="col-md-1"><%= f.label :author %></div>
+    <div class="col-md-10"><%= f.text_area :author %></div>
+    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
+    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
+  </div>
+  <div class="row mlp15">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div><br>

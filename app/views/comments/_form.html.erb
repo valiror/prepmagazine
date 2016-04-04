@@ -1,0 +1,40 @@
+<div class="" style="margin-left:15px;">
+ <div class="row">
+   <label>List Of Comments</label>
+ </div>
+<% @magazine.articles.comments.each do |comment| %>
+   <div class="row">
+    <div class="col-md-1"><strong>Comment:</strong></div>
+    <div class="col-md-10"><%= comment.comment %></div>
+  </div>
+   <div class="row">
+    <div class="col-md-1"><strong>Commenter:</strong></div>
+    <div class="col-md-10"><%= comment.commenter %></div>
+  </div>
+  <div class="row"> 
+  <%= link_to 'Destroy article', [comment.article, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+  </div>
+<%end %>
+</div>
+<h2>Add a Comment:</h2>
+<div class="row-fluid">
+<%= form_for([@article, @article.comments.build]) do |f| %>  
+  <div class="row">
+    <div class="col-md-1"><%= f.label :comment %></div>
+    <div class="col-md-10"><%= f.text_area :comment %></div>
+    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
+    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
+  </div>
+  <div class="row">
+    <div class="col-md-1"><%= f.label :commenter %></div>
+    <div class="col-md-10"><%= f.text_area :commenter %></div>
+    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
+    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
+  </div>
+  <div class="row mlp15">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div><br>
