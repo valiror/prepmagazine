@@ -19,10 +19,10 @@
   <div class="row"> 
   <%= link_to 'Destroy article', [article.magazine, article],
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+               data: { confirm: 'Are you sure?' },class: "btn btn-primary" %>
   </div>
   <div class="row">
-<%#= render "comments/form"%>
+<%= render "comments/form"%>
 </div>
 <%end %>
 </div>
@@ -32,24 +32,21 @@
 <%= form_for([@magazine, @magazine.articles.build]) do |f| %>
   <div class="row">
     <div class="col-md-1"><%= f.label :title %></div>
-    <div class="col-md-10"><%= f.text_field :title %></div>
-    <span style="color:red;"><%#= @comment.errors[:commenter][0]%></span>
-    <span style="color:red;"><%#= @comment.errors[:commenter][0]%></span>
+    <div class="col-md-10"><%= f.text_field :title,required: true %></div>
+    
   </div>
   <div class="row">
     <div class="col-md-1"><%= f.label :body %></div>
-    <div class="col-md-10"><%= f.text_area :body %></div>
-    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
-    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
+    <div class="col-md-10"><%= f.text_area :body,required: true %></div>
+    
   </div>
   <div class="row">
     <div class="col-md-1"><%= f.label :author %></div>
-    <div class="col-md-10"><%= f.text_area :author %></div>
-    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
-    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
+    <div class="col-md-10"><%= f.text_area :author,required: true %></div>
+    
   </div>
   <div class="row mlp15">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary"%>
   </div>
 <% end %>
 </div><br>
