@@ -16,22 +16,20 @@
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
   </div>
-<%#end %>
+<%#end%>
 </div>
 <h2>Add a Comment:</h2>
 <div class="row-fluid">
-<%= form_for([@article, @article.comments.build]) do |f| %>  
+<%= form_for([@article, @comment]) do |f| %>  
   <div class="row">
     <div class="col-md-1"><%= f.label :comment %></div>
     <div class="col-md-10"><%= f.text_area :comment %></div>
-    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
-    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
+    
   </div>
   <div class="row">
     <div class="col-md-1"><%= f.label :commenter %></div>
     <div class="col-md-10"><%= f.text_area :commenter %></div>
-    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
-    <span style="color:red;"><%#= @comment.errors[:commentt_area][0]%></span>
+    
   </div>
   <div class="row mlp15">
     <%= f.submit class: "btn btn-primary" %>
