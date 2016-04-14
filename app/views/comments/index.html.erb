@@ -1,2 +1,32 @@
-<h1>Comments#index</h1>
-<p>Find me in app/views/comments/index.html.erb</p>
+
+<div class="row-fluid main">
+		<div class="row-fluid">
+		<h1>List of comments</h1>
+				<table class="table table-responsive">
+					<thead>
+						<tr>
+							<th>Comment</th>
+							<th>commenter</th>							
+						</tr>
+					</thead>
+					<tbody>
+						<% @comments.each do |comment| %>
+				         <tr>
+						<td><%= comment.comment%></td>	
+						<td><%= comment.commenter%></td>				
+						<td><%= link_to 'Show', comment_path(comment),class: "btn btn-primary btn-xs" %></td>
+				       <td><%= link_to 'Edit', edit_comment_path(comment),class: "btn btn-primary btn-xs" %></td>
+				       <td><%= link_to 'Destroy', comment_path(comment),
+				              method: :delete,
+				              data: { confirm: 'Are you sure?' },class: "btn btn-primary btn-xs" %></td>
+						
+				        </tr>
+						<%end%>
+					</tbody>
+				</table>
+		</div>
+		<div class="row-fluid ">
+		<%= link_to "New",new_comment_path,:class => "btn btn-primary btn-xs"%>
+		<%= link_to "Back",comments_path,:class => "btn btn-primary btn-xs"%>
+		</div>
+</div>

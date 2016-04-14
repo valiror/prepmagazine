@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   end
   def create
     @magazine = Magazine.find(params[:magazine_id])
-    @article = @magazine.articles.new(article_params)
+    @article = @magazine.articles.create(article_params)
     redirect_to magazine_path(@magazine)
   end
  def destroy
@@ -11,6 +11,9 @@ class ArticlesController < ApplicationController
  @article = @magazine.articles.find(params[:id])
  @article.destroy
  redirect_to magazine_path(@magazine)
+ end
+ def show
+
  end
   private
     def article_params

@@ -1,0 +1,19 @@
+<h2>Add a Comment:</h2>
+<div class="row-fluid">
+<%= form_for @comment do |f| %>  
+  <div class="row">
+    <div class="col-md-1"><%= f.label :comment %></div>
+    <div class="col-md-10"><%= f.text_area :comment %></div>
+    
+  </div>
+  <input type="hidden" name="comment[article_id]" value="<%= params[:article_id]%>">
+  <div class="row">
+    <div class="col-md-1"><%= f.label :commenter %></div>
+    <div class="col-md-10"><%= f.text_area :commenter %></div>
+    
+  </div>
+  <div class="row mlp15">
+    <%= f.submit class: "btn btn-primary btn-xs" %>
+  </div>
+<%end %>
+</div

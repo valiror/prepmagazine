@@ -1,0 +1,20 @@
+<section class="main">
+	<h1>Show Coment</h1>
+	<table>
+		<thead>
+			<tr>
+				<th width="200px">Comment</th>
+				<th width="200px">Commenter</th>
+			</tr>
+		</thead>	
+	<% @comments.each do |comment|%>
+	<tbody>
+	<tr>
+		<td width="200px"><%= comment.comment%></td>
+		<td width="200px"><%= comment.commenter%></td>
+	</tr>		
+	</tbody>
+	<%end%>
+	</table>
+	<%= link_to "back",magazine_path %>
+	</section>

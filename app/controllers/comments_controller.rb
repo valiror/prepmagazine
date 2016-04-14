@@ -1,22 +1,32 @@
 class CommentsController < ApplicationController
-  def index
-    @article = Article.find(params[:article_id])
-    @comments = Comment.all
+def index
+
+   @comments = Comment.all
+ 
   end
-  def new 
-  @article = Article.find(params[:article_id])
-  @comment = @article.comments.new
+  def new
+  @comment = Comment.new
   end
-  def create
-    @article = Article.find(params[:article_id])
-    @comment = @article.comments.new(comment_params)
-    redirect_to article_path(@article)
+  def create 
+    params.permit!
+    @comment = Comment.new(params[:comment])
+    @comment.article_id= params[:comment][:article_id]
+    article = Article.find(params[:comment][:article_id])
+    magazine_id = article.magazine_id
+    if @comment.save
+      redirect_to magazine_path(id: magazine_id)
+    else
+      render 'new'
+    end
   end
- def destroy
- @article = Article.find(params[:article_id])
- @comment = @article.comments.find(params[:id])
+ def destroy  
+ @comment = Comment.find(params[:id])
  @comment.destroy
- redirect_to article_path(@article)
+ redirect_to comments_path
+ end
+ def show
+  @article = Article.find(params[:article_id])
+  @comments = @article.comments  
  end
   private
     def comment_params

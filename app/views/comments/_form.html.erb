@@ -2,25 +2,25 @@
  <div class="row">
    <label>List Of Comments</label>
  </div>
-<%# @article.comments.each do |comment| %>
+<% @articles.comments.each do |comment| %>
    <div class="row">
     <div class="col-md-1"><strong>Comment:</strong></div>
-    <div class="col-md-10"><%#= comment.comment %></div>
+    <div class="col-md-10"><%= @comment.comment %></div>
   </div>
    <div class="row">
     <div class="col-md-1"><strong>Commenter:</strong></div>
-    <div class="col-md-10"><%#= comment.commenter %></div>
+    <div class="col-md-10"><%= @comment.commenter %></div>
   </div>
   <div class="row"> 
-  <%#= link_to 'Destroy comment', [comment.article, comment],
+  <%= link_to 'Destroy comment', [comment.article, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
   </div>
-<%#end%>
+<%end%>
 </div>
 <h2>Add a Comment:</h2>
 <div class="row-fluid">
-<%= form_for([@article, @comment]) do |f| %>  
+<%= form_for([@comment.articles, @comments.build]) do |f| %>  
   <div class="row">
     <div class="col-md-1"><%= f.label :comment %></div>
     <div class="col-md-10"><%= f.text_area :comment %></div>
@@ -32,7 +32,7 @@
     
   </div>
   <div class="row mlp15">
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit class: "btn btn-primary btn-xs" %>
   </div>
 <%end %>
 </div><br>

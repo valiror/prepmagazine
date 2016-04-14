@@ -16,14 +16,17 @@
     <div class="col-md-1"><strong>Author:</strong></div>
     <div class="col-md-10"><%= article.author %></div>
   </div>
+  <div class=""></div>
+    <div class="row">
+<%= link_to "comment", new_comment_path(:article_id => article.id,:magazine_id => article.magazine_id) %>
+<%= link_to 'Show', comment_path(:article_id => article.id,:magazine_id => article.magazine_id),class: "" %>
+</div>
   <div class="row"> 
   <%= link_to 'Destroy article', [article.magazine, article],
                method: :delete,
-               data: { confirm: 'Are you sure?' },class: "btn btn-primary" %>
+               data: { confirm: 'Are you sure?' },class: "btn btn-primary btn-xs" %>
   </div>
-  <div class="row">
-<%= render "comments/form"%>
-</div>
+
 <%end %>
 </div>
 
@@ -46,7 +49,7 @@
     
   </div>
   <div class="row mlp15">
-    <%= f.submit class: "btn btn-primary"%>
+    <%= f.submit class: "btn btn-primary btn-xs"%>
   </div>
 <% end %>
 </div><br>
